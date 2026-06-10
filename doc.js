@@ -14,6 +14,7 @@ const docId = DOCS[params.get('doc')] ? params.get('doc') : 'timeline';
 const doc = DOCS[docId];
 
 document.title = 'hAIstory · ' + doc.title;
+document.body.classList.add('doc-' + docId); // per-doc styling hook (e.g. glossary card grid)
 document.getElementById('doc-title').textContent = doc.title;
 document.getElementById('doc-desc').textContent = doc.desc;
 
@@ -116,6 +117,14 @@ function renderMarkdown(md) {
       }
       out.push('<ol>' + items.join('') + '</ol>');
       continue;
+    }
+
+    // glossary entries ("**Term** — definition.") become definition cards
+    const def = docId === 'glossary' && line.trim().match(/^\*\*([^*]+)\*\*\s*—\s*(.+)$/);
+    if (def) {
+      out.push('<div class="def-item"><div class="def-term">' + inline(def[1])
+        + '</div><div class="def-text">' + inline(def[2]) + '</div></div>');
+      i++; continue;
     }
 
     // paragraph — gather consecutive plain lines

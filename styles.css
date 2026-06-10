@@ -658,11 +658,29 @@ section { padding: 6rem 0; }
 }
 .doc-body p { margin: 0 0 1.1rem; }
 .doc-body b { color: var(--text); }
+.doc-body i { color: var(--muted); }
 .doc-body a { color: var(--research); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; overflow-wrap: anywhere; }
 .doc-body a:hover { border-bottom-color: var(--research); }
-.doc-body ul, .doc-body ol { margin: 0 0 1.25rem; padding-left: 1.4rem; }
-.doc-body li { margin: 0.45rem 0; }
-.doc-body li::marker { color: var(--muted); }
+.doc-body ol { margin: 0 0 1.25rem; padding-left: 1.4rem; }
+.doc-body ol li { margin: 0.55rem 0; padding-left: 0.3rem; }
+.doc-body ol li::marker { color: var(--muted); font-weight: 600; }
+/* unordered lists get a timeline-rail treatment instead of plain dots */
+.doc-body ul { list-style: none; margin: 0 0 1.5rem; padding: 0; }
+.doc-body ul li {
+  position: relative;
+  border-left: 2px solid var(--line);
+  padding: 0.35rem 0 0.35rem 1.15rem;
+  margin: 0;
+}
+.doc-body ul li::before {
+  content: '';
+  position: absolute;
+  left: -4px; top: 0.95em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.doc-body ul li:hover { border-left-color: var(--muted); }
 .doc-body code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85em;
@@ -699,6 +717,25 @@ section { padding: 6rem 0; }
 .doc-error { color: var(--muted-hi); }
 .doc-page footer a { color: var(--muted-hi); }
 .doc-page .chips .chip { text-decoration: none; }
+
+/* glossary: definition cards in a responsive grid */
+.doc-glossary .doc-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 0.9rem;
+  align-items: stretch;
+}
+.doc-glossary .doc-body > p { grid-column: 1 / -1; margin: 0 0 0.5rem; }
+.def-item {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.05rem 1.2rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+.def-item:hover { border-color: var(--line-hi); background: var(--bg-card-hi); }
+.def-term { font-weight: 700; color: var(--research); letter-spacing: -0.01em; margin-bottom: 0.4rem; }
+.def-text { font-size: 0.92rem; line-height: 1.6; }
 
 /* ===== CEO predictions ===== */
 .ceo-grid {
