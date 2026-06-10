@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hAIstory · Now — Daily AI Updates</title>
+  <meta name="description" content="The Now feed: daily AI updates — releases, posts, papers, and business moves. The small stuff that keeps the timeline current." />
+
+  <!-- Open Graph / Twitter link previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="hAIstory · Now — Daily AI Updates" />
+  <meta property="og:description" content="Daily AI updates — releases, posts, papers, and business. The small stuff between the historical milestones." />
+  <meta property="og:site_name" content="hAIstory" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="hAIstory · Now" />
+  <meta name="twitter:description" content="Daily AI updates — releases, posts, papers, and business." />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26' font-family='Arial,sans-serif' font-weight='bold'>h</text></svg>" />
+
+  <!-- apply saved theme before paint to avoid a flash -->
+  <script>try{var t=localStorage.getItem('haistory-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="now-page">
+
+  <div class="grid-bg"></div>
+
+  <header class="now-hero">
+    <div class="now-hero-inner">
+      <a class="now-brand" href="index.html"><span class="logo-h">h</span><span class="grad">AI</span><span class="logo-h">story</span></a>
+      <div class="now-live"><span class="live-dot" aria-hidden="true"></span> Live wire · daily updates</div>
+      <h1 class="now-title">NOW</h1>
+      <p class="now-subtitle">Releases, posts, papers, and business moves — the small stuff that keeps the timeline current. For the milestones that mattered, see the <a href="index.html">historical timeline</a>.</p>
+    </div>
+  </header>
+
+  <nav class="filters" id="filters" aria-label="Filter updates">
+    <div class="filters-inner">
+      <input type="search" id="search" placeholder="Search updates…" aria-label="Search updates" autocomplete="off" />
+      <div class="chips" id="chips" role="group" aria-label="Filter by kind"></div>
+      <a class="now-link" href="index.html">← Timeline</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"></button>
+    </div>
+  </nav>
+
+  <main class="now-main">
+    <div class="results-status" id="results-status" aria-live="polite"></div>
+    <div class="empty-state" id="empty-state" role="status" hidden>
+      <p>No updates match your search or filter.</p>
+      <button class="clear-filters" id="clear-filters">Clear filters</button>
+    </div>
+    <div id="feed"></div>
+  </main>
+
+  <footer>
+    <div>hAIstory · Now — daily AI updates</div>
+    <div class="muted">Press <kbd>/</kbd> to focus search · Press <kbd>esc</kbd> to clear filters</div>
+  </footer>
+
+  <script src="data/feed.js"></script>
+  <script src="now.js"></script>
+</body>
+</html>

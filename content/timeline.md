@@ -1,6 +1,6 @@
 # The AI Timeline — From Turing to Today
 
-*A simplified, thorough history of artificial intelligence. Compiled May 2026.*
+*A simplified, thorough history of artificial intelligence. Updated June 2, 2026.*
 
 ---
 
@@ -60,9 +60,10 @@ The moment AI stopped being for researchers and became a household word.
 - **Feb 2023 — Meta's LLaMA leaks** onto the internet days after release. *Accidentally launches the open-source AI movement.*
 - **Mar 2023 — GPT-4** (OpenAI). Multimodal (text + images), passes the bar exam. *The new ceiling for AI capability.*
 - **Mar 2023 — Claude 1** (Anthropic). *Anthropic's first public model. The OpenAI rival is real.*
+- **Apr 2023 — Google merges Brain + DeepMind** into one unit. *Google realizes it's losing the race and consolidates.*
 - **Jul 2023 — xAI founded** by Elon Musk. *He's back in the AI race after leaving OpenAI in 2018.*
 - **Jul 2023 — Meta releases LLaMA 2** open-source. *Frontier AI is no longer locked up.*
-- **Dec 2023 — Google merges Brain + DeepMind** into one unit. *Google realizes it's losing the race and consolidates.*
+- **Dec 2023 — Gemini 1.0** (Google DeepMind). *Google's unified, natively-multimodal answer to GPT-4.*
 
 ---
 
@@ -89,13 +90,15 @@ In late 2020, **Dario Amodei** (OpenAI's VP of Research) and his sister **Daniel
 | Nov 2024 | — | **Model Context Protocol (MCP)** open-sourced — becomes industry standard |
 | Dec 2024 | **o3** announced (huge reasoning leap) | — |
 | Dec 2024 | **Sora** (text-to-video) public | — |
-| Feb 2025 | — | **Claude 3.7 Sonnet** + **Claude Code** (terminal coding agent) |
+| Feb 2025 | **GPT-4.5** (Orion — last pure scaling play) | **Claude 3.7 Sonnet** + **Claude Code** (terminal coding agent) |
 | May 2025 | — | **Claude 4** family (Sonnet 4, Opus 4) |
 | Aug 2025 | **GPT-5** | — |
 | Sep–Nov 2025 | — | **Claude 4.5** family (Sonnet 4.5 in Sept, Opus 4.5 in Nov — first to break 80% on SWE-bench) |
+| Nov 2025 | GPT-5.1 (Instant / Thinking) | — |
 | Dec 2025 | GPT-5.2 | — |
 | Feb 2026 | GPT-5.3-Codex | **Claude 4.6** (Opus + Sonnet) |
 | Apr 2026 | GPT-5.5 | **Claude Opus 4.7** |
+| Jun 2026 | — | **Claude Fable 5** (new family name — most anticipated release of the year) |
 
 ### The Sam Altman Drama (November 2023)
 
@@ -125,7 +128,8 @@ The race isn't two horses — it's a stampede.
 - **Bard → Gemini** rebrand (2023–24).
 - **Gemini 1.5** (Feb 2024): million-token context.
 - **Gemini 2.0** (Dec 2024): "agentic era" model.
-- **Gemini 2.5 + Project Astra** (May 2025): live video-aware AI assistant.
+- **Gemini 2.5** (Mar 2025): thinking built in; **Project Astra** live video-aware assistant at I/O in May.
+- **Gemini 3** (Nov 2025): tops the benchmarks, ships into Search day one — triggers OpenAI's "code red."
 
 ### Meta (open-source champion)
 - **LLaMA 1** leaks Feb 2023.
@@ -134,7 +138,7 @@ The race isn't two horses — it's a stampede.
 - **LLaMA 4** (2025): mixture-of-experts architecture.
 
 ### xAI (Elon Musk)
-- Founded Jul 2023. **Grok 1, 2, 3** released in rapid succession. Built **Colossus**, one of the largest GPU clusters on Earth, in months.
+- Founded Jul 2023. **Grok 1, 2, 3, 4** released in rapid succession — Grok 4 (Jul 2025) topped several reasoning benchmarks. Built **Colossus**, one of the largest GPU clusters on Earth, in months.
 
 ### DeepSeek (the China shock)
 - **Dec 2024 — DeepSeek V3** matches GPT-4 quality at a fraction of the cost.
@@ -157,7 +161,7 @@ The race isn't two horses — it's a stampede.
 The bottleneck shifts from algorithms to **chips and electricity**.
 
 - **NVIDIA** is the picks-and-shovels winner. H100 GPUs became 2023's most coveted hardware. **Blackwell (B100/B200)** announced Mar 2024 — 2.5× faster than H100.
-- **NVIDIA market cap:** ~$1T (2023) → **$4T (Oct 2024)** → **$5T (early 2025).** One of the most valuable companies on Earth.
+- **NVIDIA market cap:** ~$1T (May 2023) → $3T (Jun 2024) → **$4T (Jul 2025, first company ever)** → **$5T (Oct 2025).** The most valuable company on Earth.
 - **Stargate Project** (announced Jan 2025): OpenAI + Oracle + SoftBank pledge **$500B** over 4 years for AI data centers. First Texas site opened Sept 2025.
 - **Energy crunch:** AI's electricity demand is breaking the grid.
   - **Microsoft** signs 20-year deal to **restart Three Mile Island** nuclear reactor (Sept 2024).
@@ -225,4 +229,4 @@ Five things — not algorithms — will decide how fast this actually happens:
 
 ---
 
-*Compiled with research from official lab announcements, Wikipedia, peer-reviewed papers, CNBC/TechCrunch, and CEO statements. Last updated May 5, 2026.*
+*Compiled with research from official lab announcements, Wikipedia, peer-reviewed papers, CNBC/TechCrunch, and CEO statements. Last updated June 2, 2026.*

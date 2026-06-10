@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The AI Timeline — From Turing to Today</title>
+  <title>hAIstory — The Race to AGI</title>
+  <meta name="description" content="An interactive history of artificial intelligence. From Turing's 1950 thought experiment to the trillion-dollar race for AGI." />
+
+  <!-- Open Graph / Twitter link previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="hAIstory — The Race to AGI" />
+  <meta property="og:description" content="An interactive history of artificial intelligence. From Turing's 1950 thought experiment to the trillion-dollar race for AGI." />
+  <meta property="og:site_name" content="hAIstory" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="hAIstory — The Race to AGI" />
+  <meta name="twitter:description" content="An interactive history of artificial intelligence — 92 milestones across 6 eras, from Turing to AGI." />
+  <!-- TODO: add an og:image.png (1200×630) for rich large-image previews -->
+
+  <!-- apply saved theme before paint to avoid a flash -->
+  <script>try{var t=localStorage.getItem('haistory-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26' font-family='Arial,sans-serif' font-weight='bold'>h</text></svg>" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -15,29 +33,37 @@
 
   <header class="hero">
     <div class="hero-inner">
-      <div class="kicker">A simplified, thorough history</div>
-      <h1>The <span class="grad">AI</span> Timeline</h1>
-      <p class="subtitle">From Turing's 1950 thought experiment to the agentic models of 2026 — every breakthrough, every company, every prediction. Click anything.</p>
+      <div class="kicker">An interactive history of artificial intelligence</div>
+      <h1><span class="logo-h">h</span><span class="grad">AI</span><span class="logo-h">story</span></h1>
+      <p class="tagline">The Race to AGI</p>
+      <p class="subtitle">Humans accidentally built a new kind of intelligence — and now the entire planet is reorganizing around compute, energy, and agents. This is how it happened, who built it, and where it goes next.</p>
 
       <div class="stats">
-        <div class="stat"><div class="stat-num" data-count="76">0</div><div class="stat-label">years</div></div>
-        <div class="stat"><div class="stat-num" data-count="9">0</div><div class="stat-label">eras</div></div>
-        <div class="stat"><div class="stat-num" data-count="80">0</div><div class="stat-label">milestones</div></div>
-        <div class="stat"><div class="stat-num" data-count="20">0</div><div class="stat-label">labs &amp; companies</div></div>
+        <div class="stat"><div class="stat-num" data-stat="years" data-count="0">0</div><div class="stat-label">years</div></div>
+        <div class="stat"><div class="stat-num" data-stat="eras" data-count="0">0</div><div class="stat-label">eras</div></div>
+        <div class="stat"><div class="stat-num" data-stat="milestones" data-count="0">0</div><div class="stat-label">milestones</div></div>
+        <div class="stat"><div class="stat-num" data-stat="labs" data-count="0">0</div><div class="stat-label">labs &amp; companies</div></div>
       </div>
 
       <div class="hero-arrow">↓</div>
     </div>
   </header>
 
-  <nav class="filters" id="filters">
+  <nav class="filters" id="filters" aria-label="Filters and search">
     <div class="filters-inner">
-      <input type="search" id="search" placeholder="Search events, companies, models…" autocomplete="off" />
-      <div class="chips" id="chips"></div>
+      <input type="search" id="search" placeholder="Search events, companies, models…" aria-label="Search the timeline" autocomplete="off" />
+      <div class="chips" id="chips" role="group" aria-label="Filter by company or theme"></div>
+      <a class="now-link" href="now.html">Now →</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"></button>
+    </div>
+    <div class="era-nav-wrap" role="navigation" aria-label="Jump to era">
+      <div class="era-nav" id="era-nav"></div>
     </div>
   </nav>
 
   <main>
+    <div class="now-teaser" id="now-teaser"></div>
+
     <section class="tldr">
       <h2 class="section-title">The Big Picture</h2>
       <p class="tldr-body">
@@ -45,7 +71,19 @@
       </p>
     </section>
 
+    <div class="results-status" id="results-status" aria-live="polite"></div>
+    <div class="empty-state" id="empty-state" role="status" hidden>
+      <p>No events match your search or filter.</p>
+      <button class="clear-filters" id="clear-filters">Clear filters</button>
+    </div>
+
     <section id="timeline"></section>
+
+    <section class="power-shifts">
+      <h2 class="section-title">Power Shifts</h2>
+      <p class="section-sub">Most timelines focus on models. The more interesting story is who actually controlled AI at each moment — and where the power is moving next.</p>
+      <div class="shifts" id="shifts"></div>
+    </section>
 
     <section class="vs-section">
       <h2 class="section-title">OpenAI vs. Anthropic — The Race</h2>
@@ -53,6 +91,13 @@
       <div class="vs-table-wrapper">
         <table class="vs-table" id="vs-table"></table>
       </div>
+    </section>
+
+    <section class="releases-section" id="releases">
+      <h2 class="section-title">The Release Race</h2>
+      <p class="section-sub">Every major frontier model release, 2018 → today, color-coded by lab. Click a lab to isolate its track.</p>
+      <div class="release-legend" id="release-legend" role="group" aria-label="Filter releases by lab"></div>
+      <div class="release-years" id="release-years"></div>
     </section>
 
     <section class="predictions">
@@ -78,21 +123,56 @@
         <li><b>Predictions are wider than they look.</b> Even the optimists privately admit a 5–10 year confidence interval.</li>
       </ul>
     </section>
+
+    <section class="go-deeper">
+      <h2 class="section-title">Go Deeper</h2>
+      <p class="section-sub">The long-form companion docs this timeline was built from. Plain-text Markdown — open and read.</p>
+      <div class="docs-grid">
+        <a class="doc-card" href="content/timeline.md" target="_blank" rel="noopener">
+          <div class="doc-title">The Full Timeline</div>
+          <div class="doc-desc">The original prose history, era by era, in narrative form.</div>
+        </a>
+        <a class="doc-card" href="content/glossary.md" target="_blank" rel="noopener">
+          <div class="doc-title">Plain-English Glossary</div>
+          <div class="doc-desc">Every bit of jargon — Transformer, RLHF, MoE, agents — decoded.</div>
+        </a>
+        <a class="doc-card" href="content/future-predictions.md" target="_blank" rel="noopener">
+          <div class="doc-title">Predictions, Expanded</div>
+          <div class="doc-desc">CEO timelines and the five real constraints, in depth.</div>
+        </a>
+        <a class="doc-card" href="content/sources.md" target="_blank" rel="noopener">
+          <div class="doc-title">Full Bibliography</div>
+          <div class="doc-desc">The complete primary-source list behind every claim.</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="sources">
+      <h2 class="section-title">Primary Sources</h2>
+      <p class="section-sub">The actual papers, essays, and announcements this timeline is built from. Read them yourself.</p>
+      <div class="sources-grid" id="sources-grid"></div>
+    </section>
   </main>
 
   <footer>
-    <div>Compiled May 2026 · Sources: official lab announcements, peer-reviewed papers, CNBC/TechCrunch, CEO statements.</div>
+    <div>hAIstory · An interactive history of AI · Updated June 10, 2026</div>
     <div class="muted">Press <kbd>/</kbd> to focus search · Press <kbd>esc</kbd> to clear filters</div>
   </footer>
 
   <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-card">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <button class="modal-close" id="modal-close" aria-label="Close">×</button>
       <div class="modal-content" id="modal-content"></div>
     </div>
   </div>
 
-  <script src="data.js"></script>
+  <script src="data/events.js"></script>
+  <script src="data/releases.js"></script>
+  <script src="data/people.js"></script>
+  <script src="data/future.js"></script>
+  <script src="data/shifts.js"></script>
+  <script src="data/sources.js"></script>
+  <script src="data/feed.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
