@@ -16,7 +16,7 @@ python -m http.server 8765
 # then open http://localhost:8765
 ```
 
-Or just double-click `index.html`.
+Or just double-click `index.html`. (The Go Deeper doc pages fetch their markdown, so they need the folder *served* — everything else works from a double-click too.)
 
 ---
 
@@ -26,9 +26,11 @@ Or just double-click `index.html`.
 hAIstory/
 ├─ index.html              # the historical timeline (the main site)
 ├─ now.html                # the NOW feed — daily updates
-├─ styles.css              # design (era color-coded, dark theme) — shared by both pages
+├─ doc.html                # Go Deeper — themed viewer for the content/*.md docs
+├─ styles.css              # design (era color-coded, dark theme) — shared by all pages
 ├─ script.js               # timeline render + filter + search + modal + NOW teaser
 ├─ now.js                  # NOW feed render + filter + search
+├─ doc.js                  # doc viewer: tiny markdown renderer + doc switcher
 ├─ README.md               # this file
 │
 ├─ data/                   # all data — easy to edit
@@ -40,7 +42,7 @@ hAIstory/
 │  ├─ shifts.js            # Power Shifts framing
 │  └─ sources.js           # primary sources used for the site
 │
-└─ content/                # long-form companion docs
+└─ content/                # long-form companion docs (rendered themed via doc.html)
    ├─ timeline.md          # the original prose timeline
    ├─ sources.md           # full primary-source bibliography
    ├─ glossary.md          # plain-English jargon decoder

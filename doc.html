@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hAIstory · Go Deeper</title>
+  <meta name="description" content="The long-form companion docs behind the hAIstory timeline — full prose history, glossary, predictions, and bibliography." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="hAIstory · Go Deeper" />
+  <meta property="og:description" content="The long-form companion docs behind the hAIstory timeline." />
+  <meta property="og:site_name" content="hAIstory" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="hAIstory · Go Deeper" />
+  <meta name="twitter:description" content="The long-form companion docs behind the hAIstory timeline." />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26' font-family='Arial,sans-serif' font-weight='bold'>h</text></svg>" />
+
+  <!-- apply saved theme before paint to avoid a flash -->
+  <script>try{var t=localStorage.getItem('haistory-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="doc-page">
+
+  <div class="grid-bg"></div>
+
+  <header class="doc-hero">
+    <div class="doc-hero-inner">
+      <a class="now-brand" href="index.html"><span class="logo-h">h</span><span class="grad">AI</span><span class="logo-h">story</span></a>
+      <div class="kicker">Go deeper</div>
+      <h1 class="doc-hero-title" id="doc-title">…</h1>
+      <p class="doc-hero-sub" id="doc-desc"></p>
+    </div>
+  </header>
+
+  <nav class="filters" aria-label="Companion docs">
+    <div class="filters-inner">
+      <div class="chips" id="doc-nav" role="group" aria-label="Switch document"></div>
+      <a class="now-link" href="index.html">← Timeline</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"></button>
+    </div>
+  </nav>
+
+  <main class="doc-main">
+    <article class="doc-body" id="doc-body" aria-live="polite">Loading…</article>
+  </main>
+
+  <footer>
+    <div>hAIstory · An interactive history of AI</div>
+    <div class="muted"><a href="index.html">← Back to the timeline</a></div>
+  </footer>
+
+  <script src="doc.js"></script>
+</body>
+</html>
